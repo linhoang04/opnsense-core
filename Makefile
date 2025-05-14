@@ -152,7 +152,7 @@ CORE_DEPENDS?=		ca_root_nss \
 			php${CORE_PHP}-filter \
 			php${CORE_PHP}-gettext \
 			php${CORE_PHP}-google-api-php-client \
-			php${CORE_PHP}-json \
+			#php${CORE_PHP}-json \
 			php${CORE_PHP}-ldap \
 			php${CORE_PHP}-pcntl \
 			php${CORE_PHP}-pdo \

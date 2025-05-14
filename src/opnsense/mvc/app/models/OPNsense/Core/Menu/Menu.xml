@@ -124,8 +124,8 @@
         <Aliases url="/ui/firewall/alias" cssClass="fa fa-list-alt fa-fw" svgIcon="link">
             <Edit url="/ui/firewall/alias/*" visibility="hidden"/>
         </Aliases>
-        <Categories url="/ui/firewall/category" cssClass="fa fa-tags fa-fw" svgIcon="network" />
-        <Groups url="/ui/firewall/group" cssClass="fa fa-sitemap fa-fw" svgIcon="network" />
+        <Categories url="/ui/firewall/category" cssClass="fa fa-tags fa-fw" svgIcon="globe" />
+        <Groups url="/ui/firewall/group" cssClass="fa fa-sitemap fa-fw" svgIcon="globe" />
         <NAT cssClass="fa fa-exchange fa-fw" svgIcon="shuffle">
             <PortForward order="100" VisibleName="Port Forward" url="/firewall_nat.php">
                 <Edit url="/firewall_nat_edit.php*" visibility="hidden"/>
@@ -198,8 +198,8 @@
     </Power>
     <Help VisibleName="Support" order="100" cssClass="fa fa-support" svgIcon="buoy">
         <License order="100" url="/ui/core/license" cssClass="fa fa-balance-scale fa-fw" svgIcon="badge" />
-        <Documentation order="10" url="https://dynfi.com/documentations/dynfi-firewall/" cssClass="fa fa-book" IsExternal="Y" svgIcon="document" />
-        <Forum VisibleName="User Forum" order="20" url="https://dynfi.com/forum" cssClass="fa fa-ticket" IsExternal="Y" svgIcon="conversation" />
-        <Support VisibleName="Commercial Support" order="30" url="https://shop.dynfi.com/" cssClass="fa fa-phone" IsExternal="Y" svgIcon="user-solid-square" />
+        <Documentation order="10" url="https://security.bkav.com/product/4/" cssClass="fa fa-book" IsExternal="Y" svgIcon="document" />
+        <Forum visibility="off" VisibleName="User Forum" order="20" url="https://dynfi.com/forum" cssClass="fa fa-ticket" IsExternal="Y" svgIcon="conversation" />
+        <Support visibility="off" VisibleName="Commercial Support" order="30" url="https://shop.dynfi.com/" cssClass="fa fa-phone" IsExternal="Y" svgIcon="user-solid-square" />
     </Help>
 </menu>

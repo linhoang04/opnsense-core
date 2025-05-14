@@ -29,7 +29,6 @@
  */
 
 namespace OPNsense\Base;
-
 /**
  * Class IndexController
  * @package OPNsense\Base

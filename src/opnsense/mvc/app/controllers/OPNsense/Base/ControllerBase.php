@@ -170,6 +170,15 @@ class ControllerBase extends ControllerRoot
      */
     public function initialize()
     {
+	
+       $current_uri = $_SERVER['REQUEST_URI'];
+       if (strpos($current_uri, '/license') === false) {
+       	 require_once('/usr/local/www/license_utils.inc');
+         if (!is_license_valid()) {
+            header("Location: /license.php");
+            exit;
+        }
+       }
         // set base template
         $this->view->setTemplateBefore('default');
         $this->view->session = $this->session;

@@ -1,5 +1,5 @@
 <menu>
     <Help>
-        <Enteprise order="15" url="/ui/enterprise" cssClass="fa fa-laptop fa-fw" svgIcon="light-bulb" />
+        <Enterprise order="15" url="/ui/enterprise" cssClass="fa fa-laptop fa-fw" svgIcon="light-bulb" />
     </Help>
 </menu>

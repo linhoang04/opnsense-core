@@ -63,14 +63,14 @@ function registerDevice(options) {
         '<select id="user-name" onmousedown="return false;" onkeydown="return false;" data-toggle="tooltip" data-placement="bottom" style="cursor: help; background-color: #EEE; color: #999; border: 1px solid #DDD" title="{{ lang._('No other users available for selection') }}">' + uOptions.join('') + '</select>';
     var dmsg = '<table class="table table-striped table-condensed"><tbody>' +
         '<tr><td><div class="control-label"><b>{{ lang._('Device group in Manager') }}</b></div></td><td>' + gSelect +
-        '<small>{{ lang._('This device will be added to the selected device group in DynFi Manager') }}</small></td></tr>' +
+        '<small>{{ lang._('This device will be added to the selected device group in BIF Manager') }}</small></td></tr>' +
         '<tr><td><div class="control-label"><b>{{ lang._('Account used by Manager') }}</b></div></td><td>' + uSelect +
-        '<small>{{ lang._('DynFi Manager will connect to this device using the selected account of this device') }}</small></td></tr>' +
+        '<small>{{ lang._('BIF Manager will connect to this device using the selected account of this device') }}</small></td></tr>' +
         '<tr><td><div class="control-label"><b>{{ lang._('Authentication mechanism') }}</b></div></td><td>' +
         '<input type="radio" name="authm" id="autm-key" value="key" style="cursor: pointer" onchange="checkAuthMethod()" checked="checked" /> <label for="autm-key" style="cursor: pointer; margin-right: 2em">{{ lang._('new SSH key pair') }}</label> ' +
         '<input type="radio" name="authm" id="autm-pass" value="pass" style="cursor: pointer" onchange="checkAuthMethod()" /> <label for="autm-pass" style="cursor: pointer">{{ lang._('SSH password') }}</label><br />' +
-        '<small class="s-auth s-auth-key">{{ lang._('DynFi Manager will connect to this device using a newly generated SSH key pair') }}</small>' +
-        '<small class="s-auth s-auth-pass">{{ lang._("DynFi manager will connect to this device using account's password") }}</small></td></tr>' +
+        '<small class="s-auth s-auth-key">{{ lang._('BIF Manager will connect to this device using a newly generated SSH key pair') }}</small>' +
+        '<small class="s-auth s-auth-pass">{{ lang._("BIF manager will connect to this device using account's password") }}</small></td></tr>' +
         '<tr class="s-auth s-auth-pass" style="display: none"><td><div class="control-label"><b>{{ lang._('SSH password') }}</b></div></td><td><input type="password" id="user-pass" value="" />' +
         '<small>{{ lang._('Leave this field empty for key-based authentication') }}</small></td></tr>';
     if (options.dfmUsername != '#token#') {
@@ -83,7 +83,7 @@ function registerDevice(options) {
         '<tr class="tunp tunp-set" style="display: none"><td><div class="control-label"><b>{{ lang._('DirectView tunnel port') }}</b></div></td><td><input type="number" id="dv-port" value="' + options.dvTunnelPort + '" /></td></tr>' +
         '</tbody></table>';
     BootstrapDialog.show({
-        title: "{{ lang._('Attach this device to DynFi Manager') }}",
+        title: "{{ lang._('Attach this device to BIF Manager') }}",
         message: dmsg,
         draggable: true,
         closable: false,
@@ -114,15 +114,15 @@ function registerDevice(options) {
                         $('#btnConnect').prop('disabled', null);
                         BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_SUCCESS,
-                            title: "{{ lang._('Registered in DynFi Manager') }}",
-                            message: "{{ lang._('Successfully registered this device to DynFi Manager. Assigned device UUID is ') }}" + data['message'],
+                            title: "{{ lang._('Registered in BIF Manager') }}",
+                            message: "{{ lang._('Successfully registered this device to BIF Manager. Assigned device UUID is ') }}" + data['message'],
                             draggable: true
                         });
                         checkStatus();
                     } else {
                         BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_WARNING,
-                            title: "{{ lang._('Error connecting to DynFi Manager') }}",
+                            title: "{{ lang._('Error connecting to BIF Manager') }}",
                             message: data['message'],
                             draggable: true
                         });
@@ -149,7 +149,7 @@ function prepareRegisterData(data) {
     } else {
         BootstrapDialog.show({
             type: BootstrapDialog.TYPE_WARNING,
-            title: "{{ lang._('Error connecting to DynFi Manager') }}",
+            title: "{{ lang._('Error connecting to BIF Manager') }}",
             message: 'Invalid add options',
             draggable: true
         });
@@ -160,10 +160,10 @@ function prepareRegisterData(data) {
 
 function getAddOptions() {
     BootstrapDialog.show({
-        title: "{{ lang._('Connect to DynFi Manager') }}",
+        title: "{{ lang._('Connect to BIF Manager') }}",
         message: '<table class="table table-striped table-condensed"><tbody>' +
-            '<tr><td><div class="control-label"><b>{{ lang._('DynFi Manager username') }}</b></div></td><td><input type="text" id="dfm-username" required="true" value="" /></td></tr>' +
-            '<tr><td><div class="control-label"><b>{{ lang._('DynFi Manager password') }}</b></div></td><td><input type="password" id="dfm-password" required="true" value="" /></td></tr>' +
+            '<tr><td><div class="control-label"><b>{{ lang._('BIF Manager username') }}</b></div></td><td><input type="text" id="dfm-username" required="true" value="" /></td></tr>' +
+            '<tr><td><div class="control-label"><b>{{ lang._('BIF Manager password') }}</b></div></td><td><input type="password" id="dfm-password" required="true" value="" /></td></tr>' +
             '</tbody></table>',
         draggable: true,
         closable: false,
@@ -186,7 +186,7 @@ function getAddOptions() {
                     } else {
                         BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_WARNING,
-                            title: "{{ lang._('Error connecting to DynFi Manager') }}",
+                            title: "{{ lang._('Error connecting to BIF Manager') }}",
                             message: data['message'],
                             draggable: true
                         });
@@ -226,7 +226,7 @@ function confirmKey(key) {
                     } else {
                         BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_WARNING,
-                            title: "{{ lang._('Error connecting to DynFi Manager') }}",
+                            title: "{{ lang._('Error connecting to BIF Manager') }}",
                             message: data['message'],
                             draggable: true
                         });
@@ -254,7 +254,7 @@ function __disconnect(d) {
         if (!result_status) {
             BootstrapDialog.show({
                 type: BootstrapDialog.TYPE_WARNING,
-                title: "{{ lang._('Error disconnecting from DynFi Manager') }}",
+                title: "{{ lang._('Error disconnecting from BIF Manager') }}",
                 message: data['message'],
                 draggable: true
             });
@@ -267,8 +267,8 @@ function __disconnect(d) {
 function disconnectDevice() {
     BootstrapDialog.show({
         title: "{{ lang._('Are you sure?') }}",
-        message: '<div style="padding: 5px; overflow-wrap: break-word">{{ lang._('Please confirm disconnecting this device from DynFi Manager') }}<br /><br />'
-            + '<input type="checkbox" id="deletealso" checked="checked" style="position: relative; top: 1px" />&nbsp;{{ lang._('Also delete this device from DynFi Manager') }}</div>',
+        message: '<div style="padding: 5px; overflow-wrap: break-word">{{ lang._('Please confirm disconnecting this device from BIF Manager') }}<br /><br />'
+            + '<input type="checkbox" id="deletealso" checked="checked" style="position: relative; top: 1px" />&nbsp;{{ lang._('Also delete this device from BIF Manager') }}</div>',
         draggable: true,
         closable: false,
         buttons: [{
@@ -411,13 +411,13 @@ function _connectDevice() {
     }
     ifacesEl += '</select>';
     BootstrapDialog.show({
-        title: "{{ lang._('Connect to DynFi Manager') }}",
+        title: "{{ lang._('Connect to BIF Manager') }}",
         message: '<table class="table table-striped table-condensed"><tbody>' +
             '<tr><td style="width: 15em"><div class="control-label"><b>{{ lang._('Token') }} <i id="tokenmark" style="display: none"></i></b></div></td><td><textarea onchange="decodeToken()" onkeyup="decodeToken()" onmouseup="decodeToken()" id="dfm-token" style="width: 100%; height: 8em"></textarea></td></tr>' +
-            '<tr style="border-top: none"><td colspan="2" style="border-top: none; text-align: justify">{{ lang._('Connection token is a short text which allows smooth connection process between Connection Agent from this firewall and DynFi Manager®. To obtain a token, please ask your DynFi Manager® administrator. Tokens in DynFi Manager® can be generated in settings (top right ⚙️ → Connection Agent).') }}</td></tr>' +
+            '<tr style="border-top: none"><td colspan="2" style="border-top: none; text-align: justify">{{ lang._('Connection token is a short text which allows smooth connection process between Connection Agent from this firewall and BIF Manager®. To obtain a token, please ask your BIF Manager® administrator. Tokens in BIF Manager® can be generated in settings (top right ⚙️ → Connection Agent).') }}</td></tr>' +
             '<tr class="adv-opt-switch"><th colspan="2" style="text-align: center"><b><a href="javascript:;" onclick="showAdvancedOptions()">{{ lang._('Show advanced options') }}</a></b></th></tr>' +
-            '<tr class="adv-opt" style="width: 15em; display: none"><td><div class="control-label"><b>{{ lang._('DynFi Manager host') }}</b></div></td><td><input onchange="checkConnectInputs()" onkeyup="checkConnectInputs()" onmouseup="checkConnectInputs()" type="text" id="dfm-host" required="true" value="' + dfmHost + '" /></td></tr>' +
-            '<tr class="adv-opt" style="width: 15em; display: none"><td><div class="control-label"><b>{{ lang._('DynFi Manager SSH port') }}</b></div></td><td><input onchange="checkConnectInputs()" onkeyup="checkConnectInputs()" onmouseup="checkConnectInputs()" type="number" min="1" max="65535" id="dfm-port" required="true" value="' + dfmPort + '" /></td></tr>' +
+            '<tr class="adv-opt" style="width: 15em; display: none"><td><div class="control-label"><b>{{ lang._('BIF Manager host') }}</b></div></td><td><input onchange="checkConnectInputs()" onkeyup="checkConnectInputs()" onmouseup="checkConnectInputs()" type="text" id="dfm-host" required="true" value="' + dfmHost + '" /></td></tr>' +
+            '<tr class="adv-opt" style="width: 15em; display: none"><td><div class="control-label"><b>{{ lang._('BIF Manager SSH port') }}</b></div></td><td><input onchange="checkConnectInputs()" onkeyup="checkConnectInputs()" onmouseup="checkConnectInputs()" type="number" min="1" max="65535" id="dfm-port" required="true" value="' + dfmPort + '" /></td></tr>' +
             '<tr class="adv-opt" style="width: 15em; display: none"><td><div class="control-label"><b>{{ lang._('Enable on interfaces') }}</b></div></td><td>' + ifacesEl + '</td></tr>' +
             '</tbody></table>',
         draggable: true,
@@ -445,11 +445,11 @@ function _connectDevice() {
                     if (result_status) {
                         var arr = data.message.split(';');
                         if (arr[0] == 'RECONNECTED') {
-                            var msg = "{{ lang._('Successfully reconnected to DynFi Manager. Assigned device UUID is %s') }}";
+                            var msg = "{{ lang._('Successfully reconnected to BIF Manager. Assigned device UUID is %s') }}";
                             msg = msg.replace('%s', arr[1]);
                             BootstrapDialog.show({
                                 type: BootstrapDialog.TYPE_SUCCESS,
-                                title: "{{ lang._('Reconnected to DynFi Manager') }}",
+                                title: "{{ lang._('Reconnected to BIF Manager') }}",
                                 message: msg,
                                 draggable: true
                             });
@@ -466,20 +466,20 @@ function _connectDevice() {
                         if (arr[0] == 'CONNCHECKFAIL') {
                             var msg = "{{ lang._('Connection Agent was unable to contact %s at port %s (%s)') }}" +
                                 "<br /><br />{{ lang._('There can be many reasons why this connection does not work. Please ensure the following:') }}" +
-                                "<br /><br />{{ lang._('* the DynFi Manager is up and has Connection Agent service enabled') }}" +
-                                "<br />{{ lang._('* the firewall protecting the DynFi Manager allows incoming connections using port %s') }}" +
+                                "<br /><br />{{ lang._('* the BIF Manager is up and has Connection Agent service enabled') }}" +
+                                "<br />{{ lang._('* the firewall protecting the BIF Manager allows incoming connections using port %s') }}" +
                                 "<br />{{ lang._('* this firewall allows outcoming connection to specified host %s and port %s') }}";
                             msg = msg.replace('%s', dfmHost).replace('%s', dfmPort).replace('%s', arr[1]).replace('%s', dfmPort).replace('%s', dfmHost).replace('%s', dfmPort);
                             BootstrapDialog.show({
                                 type: BootstrapDialog.TYPE_WARNING,
-                                title: "{{ lang._('Error connecting to DynFi Manager') }}",
+                                title: "{{ lang._('Error connecting to BIF Manager') }}",
                                 message: msg,
                                 draggable: true
                             });
                         } else {
                             BootstrapDialog.show({
                                 type: BootstrapDialog.TYPE_WARNING,
-                                title: "{{ lang._('Error connecting to DynFi Manager') }}",
+                                title: "{{ lang._('Error connecting to BIF Manager') }}",
                                 message: data['message'],
                                 draggable: true
                             });
@@ -505,7 +505,7 @@ function checkStatus() {
         } else {
             BootstrapDialog.show({
                 type: BootstrapDialog.TYPE_WARNING,
-                title: "{{ lang._('Error checking connection to DynFi Manager') }}",
+                title: "{{ lang._('Error checking connection to BIF Manager') }}",
                 message: data.message,
                 draggable: true
             });
@@ -528,7 +528,7 @@ function checkStatus() {
                 disconnectDevice();
             });
         } else {
-            $('#statustable tbody').append('<tr class="dfcinf"><td colspan="2">{{ lang._('This device is not connected to any DynFi Manager') }}</td></tr>');
+            $('#statustable tbody').append('<tr class="dfcinf"><td colspan="2">{{ lang._('This device is not connected to any BIF Manager') }}</td></tr>');
             $('#btnConnect').show();
             $('#btnReset').show();
         }
@@ -548,9 +548,9 @@ function runPreTest() {
             $('#btnDisconnect').hide();
             $('#buttons-table').hide();
             if (data.message == 'SSH_NOT_ENABLED') {
-                $('#statustable tbody').append('<tr class="dfcinf"><td colspan="2">{{ lang._('DynFi Connection Agent requires SSH enabled') }}</td></tr>');
+                $('#statustable tbody').append('<tr class="dfcinf"><td colspan="2">{{ lang._('BIF Connection Agent requires SSH enabled') }}</td></tr>');
             } else if (data.message == 'AUTOSSH_MISSING') {
-                $('#statustable tbody').append('<tr class="dfcinf"><td colspan="2">{{ lang._('Can not use DynFi Connection Agent: autossh command not found. Please install autossh first.') }}</td></tr>');
+                $('#statustable tbody').append('<tr class="dfcinf"><td colspan="2">{{ lang._('Can not use BIF Connection Agent: autossh command not found. Please install autossh first.') }}</td></tr>');
             }
         }
     });
@@ -578,7 +578,7 @@ $(document).ready(function() {
             <tbody>
                 <tr>
                     <td colspan="2">
-                        <strong>{{ lang._('DynFi Connection Agent Status') }}</strong>
+                        <strong>{{ lang._('BIF Connection Agent Status') }}</strong>
                     </td>
                 </tr>
             </tbody>

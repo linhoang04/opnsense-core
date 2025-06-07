@@ -86,7 +86,11 @@ require_once("system.inc");
       $("#system_information_widget_uptime").html(uptime_str);
       $("#system_information_widget_datetime").html(data['date_frmt']);
       $("#system_information_widget_last_config_change").html(data['config']['last_change_frmt']);
-      $("#system_information_widget_versions").html(data['versions'].join('<br/>'));
+      // Custom version
+      let html = `
+      <div>3.0</div>
+      `;
+      $("#system_information_widget_versions").html(html);
 
       var states_perc = parseInt((parseInt(data['kernel']['pf']['states']) / parseInt(data['kernel']['pf']['maxstates']))*100);
       $("#system_information_widget_states .progress-bar").css("width",  states_perc + "%").attr("aria-valuenow", states_perc + "%");

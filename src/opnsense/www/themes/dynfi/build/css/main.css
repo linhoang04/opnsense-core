@@ -1280,7 +1280,7 @@ h6, .h6 {
   font-size: 12px; }
 
 p {
-  margin: 0 0 10px; }
+  margin: 10px 0 10px; }
 
 .lead {
   margin-bottom: 20px;
@@ -4054,6 +4054,24 @@ tbody.collapse.in {
       filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
       cursor: not-allowed; }
 
+/* Mặc định tất cả option màu trắng, chữ đen */
+.dropdown-menu .dropdown-item {
+    background-color: #fff !important;
+    color: #333 !important;
+}
+
+/* Khi hover vào option */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #0099ff !important; /* Xanh dương */
+    color: #fff !important;
+}
+
+/* Option được chọn (nếu có class 'active') */
+.dropdown-menu .dropdown-item.active {
+    background-color: #ff9800 !important; /* Cam */
+    color: #fff !important;
+}
+
 .open > .dropdown-menu {
   display: block; }
 .open > a {
@@ -6689,6 +6707,7 @@ body {
   background: linear-gradient(180deg, #0a0a0a, #111827, #1f2937);
   color: #d1d5db;;
   font-size: 14px;
+  position: fixed;
 }
 
 .about-detail-bottom {
@@ -6700,7 +6719,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 20px;
+ # padding-bottom: 20px;
   padding-left: 20px;
   width: 100%;
 }
@@ -6768,7 +6787,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/ui/themes/dynfi/build/images/background-login.jpg') no-repeat center center fixed;
   background-size: cover;
   opacity: 0.05;
   z-index: -1;

@@ -323,22 +323,10 @@
             </div>
           </div>
         </section>
-        <!-- page footer -->
-        <!-- <footer class="page-foot">
-          <div class="container-fluid">
-            <a target="_blank" href="{{ product_website }}">{{ product_name }}</a> (c) {{ product_copyright_years }}
-            {{ product_copyright_owner }} 
-          </div>
-        </footer> -->
-<footer class="page-foot">
+	<footer class="page-foot">
         <div class="container-fluid about-detail-bottom">
             <div class="about-detail-bottom-left">
-                <h2 style="text-decoration: none;">BKAV IPS FIREWALL</h2>
-                <p>Công ty cổ phần BKAV Cyber Security</p>
-                <p>Điện thoại: (84-24) 37632552</p>
-                <p>Email: security@bkav.com</p>
-                <p>Địa chỉ: Tầng 2 - Tòa nhà HH1 - Đường Dương Đình Nghệ - Phường Yên Hòa - Cầu Giấy - Hà Nội</p>
-                <p>&copy; BKAV Cyber Security 1995-2025, All Rights Reserved</p>
+                <p>© 2025 BKAV Cyber Security. All rights reserved.</p>
             </div>
             <div class="about-detail-bottom-right" style="display: none">
                 <svg width="87" height="81" viewBox="0 0 87 81" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 20px;">

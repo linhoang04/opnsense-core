@@ -171,7 +171,7 @@
             <Relay order="300" url="/services_dhcpv6_relay.php"/>
             <Leases visibility="off" order="400" url="/ui/dhcpv6/leases"/>
         </ISC_DHCPv6>
-        <OpenDNS VisibleName="OpenDNS" url="/services_opendns.php" cssClass="fa fa-tags fa-fw"/>
+        <OpenDNS visibility="off" VisibleName="OpenDNS" url="/services_opendns.php" cssClass="fa fa-tags fa-fw"/>
         <RouterAdv VisibleName="Router Advertisements" cssClass="fa fa-bullseye fa-fw" />
     </Services>
     <VPN order="50" cssClass="fa fa-globe" svgIcon="lock-closed">
@@ -196,7 +196,7 @@
         <Reboot order="10" url="/ui/core/reboot" cssClass="fa fa-repeat fa-fw" svgIcon="refresh" />
         <PowerOff VisibleName="Power Off" order="20" url="/ui/core/halt" cssClass="fa fa-power-off fa-fw" svgIcon="stand-by" />
     </Power>
-    <Help VisibleName="Support" order="100" cssClass="fa fa-support" svgIcon="buoy">
+    <Help visibility="off" VisibleName="Support" order="100" cssClass="fa fa-support" svgIcon="buoy">
         <License order="100" url="/ui/core/license" cssClass="fa fa-balance-scale fa-fw" svgIcon="badge" />
         <Documentation order="10" url="https://security.bkav.com/product/4/" cssClass="fa fa-book" IsExternal="Y" svgIcon="document" />
         <Forum visibility="off" VisibleName="User Forum" order="20" url="https://dynfi.com/forum" cssClass="fa fa-ticket" IsExternal="Y" svgIcon="conversation" />

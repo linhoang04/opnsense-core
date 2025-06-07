@@ -263,7 +263,7 @@ include("head.inc");
               <tr>
                 <td><a id="help_for_crypto_hardware" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?= gettext('Hardware acceleration') ?></td>
                 <td>
-                  <select name="crypto_hardware[]" id="crypto_hardware" class="selectpicker" data-style="btn-default" title="<?= html_safe(gettext('None')) ?>">
+                  <select name="crypto_hardware[]" id="crypto_hardware" class="selectpicker" data-style="btn-default" data-none-selected-text="<?= html_safe(gettext('None')) ?>">
 <?php foreach (crypto_modules() as $cryptomod_name => $cryptomod_descr): ?>
                     <option value="<?= html_safe($cryptomod_name) ?>" <?= in_array($cryptomod_name, $pconfig['crypto_hardware']) ? 'selected="selected"' : '' ?>>
                       <?="{$cryptomod_descr} ({$cryptomod_name})"; ?>

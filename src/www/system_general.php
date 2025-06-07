@@ -70,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input_errors = array();
     $pconfig = $_POST;
-
     /* input validation */
     $reqdfields = explode(" ", "hostname domain");
     $reqdfieldsn = array(gettext("Hostname"),gettext("Domain"));
@@ -349,7 +348,7 @@ $( document ).ready(function() {
                 </div>
               </td>
             </tr>
-            <!-- <tr>
+            <tr>
               <td><a id="help_for_theme" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?=gettext("Theme"); ?></td>
               <td>
                 <select name="theme" class="selectpicker">
@@ -366,7 +365,7 @@ $( document ).ready(function() {
                   <?= gettext('This will change the look and feel of the GUI.') ?>
                 </div>
               </td>
-            </tr> -->   
+            </tr>   
           </table>
         </div>
 

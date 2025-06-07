@@ -1,21 +1,8 @@
-#<?php
-#function is_license_valid() {
-#    // Kiểm tra license từ session hoặc tệp lưu trữ
- #   return isset($_SESSION['license_key']) && $_SESSION['license_key'] === 'ABC-123-XYZ';
-#}
-#function validate_license($key) {
- #   // Có thể thêm logic kiểm tra nâng cao nếu cần
-  #  return $key === 'ABC-123-XYZ'; // thay bằng license thực tế
-#}
-#?>
-
 <?php
+// Lưu file JSON
+define('LICENSE_FILE', '/usr/local/www/license.json'); 
 
-define('LICENSE_FILE', '/usr/local/www/license.json'); // Đường dẫn lưu license JSON
-
-/**
- * Kiểm tra license có hợp lệ và chưa hết hạn không
- */
+// Check License
 function is_license_valid() {
     if (!file_exists(LICENSE_FILE)) {
         return false;
@@ -27,23 +14,52 @@ function is_license_valid() {
         return false;
     }
 
-    // Kiểm tra key và thời gian hết hạn
-    $valid_key = 'ABC-123-XYZ';  // Thay bằng key thực tế
+    // Kiểm tra ngày hết hạn
     $now = time();
+    $expires_at = strtotime($license_data['expires_at']);
 
-    return $license_data['key'] === $valid_key && $now < strtotime($license_data['expires_at']);
+    if ($now > $expires_at) {
+        return false;
+    }
+
+    // Check định dạng 
+    if (!is_string($license_data['key']) || strlen($license_data['key']) < 5) {
+        return false;
+    }
+
+    return true;
 }
 
-/**
- * Xác thực license và lưu vào file nếu hợp lệ
- */
+// Xác thực License
 function validate_license($key) {
-    $valid_key = 'ABC-123-XYZ';  // Key hợp lệ cần kiểm tra
+    $machine_id = php_uname(); 
+    $api_url = 'http://172.29.168.74:3001/check-license';
 
-    if ($key === $valid_key) {
+    $opts = [
+        'http' => [
+            'method'  => 'POST',
+            'header'  => "Content-Type: application/json\r\n",
+            'content' => json_encode([
+                'key' => $key,
+                'machine_id' => $machine_id
+            ]),
+            'timeout' => 5
+        ]
+    ];
+
+    $context  = stream_context_create($opts);
+    $response = @file_get_contents($api_url, false, $context);
+
+    if ($response === FALSE) {
+        return false;
+    }
+
+    $result = json_decode($response, true);
+
+    if (!empty($result['valid'])) {
         $data = [
             'key' => $key,
-            'expires_at' => date('Y-m-d H:i:s', strtotime('+10 second'))
+            'expires_at' => $result['expires_at'] ?? date('Y-m-d H:i:s', strtotime('+1 year'))
         ];
         file_put_contents(LICENSE_FILE, json_encode($data, JSON_PRETTY_PRINT));
         return true;

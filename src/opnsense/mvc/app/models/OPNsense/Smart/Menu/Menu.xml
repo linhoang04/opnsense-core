@@ -1,5 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <menu>
-    <Services>
-        <SMART url="/ui/smart" cssClass="fa fa-stethoscope fa-fw" svgIcon="hard-drive" />
-    </Services>
+    <Monitoring VisibleName="Monitoring" cssClass="fa fa-chart-line fa-fw" order="80">
+        <TimeInfrastructureServices VisibleName="Time Infrastructure Services" cssClass="fa fa-clock fa-fw">
+            <SMART VisibleName="SMART" cssClass="fa fa-stethoscope fa-fw" svgIcon="hard-drive" order="20" url="/ui/smart"/>
+        </TimeInfrastructureServices>
+    </Monitoring>
 </menu>

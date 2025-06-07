@@ -580,7 +580,7 @@ $(document).ready(function() {
               <tr class="ssl_opts">
                 <td><a id="help_for_sslciphers" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?=gettext("SSL Ciphers"); ?></td>
                 <td>
-                    <select name="ssl-ciphers[]" data-live-search="true" class="selectpicker" title="<?=gettext("System defaults");?>">  
+                    <select name="ssl-ciphers[]" class="selectpicker" data-live-search="true" data-none-selected-text="<?=gettext("System defaults");?>">
 <?php
                     $ciphers = json_decode(configd_run("system ssl ciphers"), true);
                     if ($ciphers == null) {
@@ -711,7 +711,7 @@ $(document).ready(function() {
               <tr>
                 <td><a id="help_for_webguiinterfaces" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?=gettext('Listen Interfaces') ?></td>
                 <td>
-                  <select id="webguiinterface" name="webguiinterfaces[]" class="selectpicker" title="<?= html_safe(gettext('All (recommended)')) ?>">
+                  <select id="webguiinterface" name="webguiinterfaces[]" class="selectpicker" data-none-selected-text="<?= html_safe(gettext('All (recommended)')) ?>">
 <?php foreach ($interfaces as $iface => $ifacename): ?>
                       <option value="<?= html_safe($iface) ?>" <?= !empty($pconfig['webguiinterfaces']) && in_array($iface, $pconfig['webguiinterfaces']) ? 'selected="selected"' : '' ?>><?= html_safe($ifacename) ?></option>
 <?php endforeach ?>
@@ -816,10 +816,10 @@ $(document).ready(function() {
                   <button id="show-advanced-cryptocryptobtn" class="btn btn-xs btn-default" value="yes"><?= gettext('Show cryptographic overrides') ?></button>
                 </td>
               </tr>
-              <tr class="show-advanced-crypto" style="display:none">
+              <tr class="show-advanced-crypto" style="display: none">
                 <td><a id="help_for_sshkex" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?=gettext("Key exchange algorithms"); ?></td>
                 <td>
-                    <select name="ssh-kex[]" class="selectpicker advanced-crypto" data-live-search="true" title="<?=gettext("System defaults");?>">
+                    <select name="ssh-kex[]" class="selectpicker advanced-crypto" data-live-search="true" data-none-selected-text="<?=gettext("System defaults");?>">
 <?php foreach ($options = empty($sshoptions['kex']) ? [] : $sshoptions['kex'] as $option): ?>
                       <option value="<?=$option;?>" <?= !empty($pconfig['ssh-kex']) && in_array($option, $pconfig['ssh-kex']) ? 'selected="selected"' : '' ?>>
                         <?=$option;?>
@@ -834,7 +834,7 @@ $(document).ready(function() {
               <tr class="show-advanced-crypto" style="display:none">
                 <td><a id="help_for_sshciphers" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?=gettext("Ciphers"); ?></td>
                 <td>
-                    <select name="ssh-ciphers[]" class="selectpicker advanced-crypto" data-live-search="true" title="<?=gettext("System defaults");?>">
+                    <select name="ssh-ciphers[]" class="selectpicker advanced-crypto" data-live-search="true" data-none-selected-text="<?=gettext("System defaults");?>">
 <?php foreach ($options = empty($sshoptions['cipher']) ? [] : $sshoptions['cipher'] as $option): ?>
                       <option value="<?=$option;?>" <?= !empty($pconfig['ssh-ciphers']) && in_array($option, $pconfig['ssh-ciphers']) ? 'selected="selected"' : '' ?>>
                         <?=$option;?>
@@ -849,7 +849,7 @@ $(document).ready(function() {
               <tr class="show-advanced-crypto" style="display:none">
                 <td><a id="help_for_sshmacs" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?=gettext("MACs"); ?></td>
                 <td>
-                    <select name="ssh-macs[]" class="selectpicker advanced-crypto" data-live-search="true" title="<?=gettext("System defaults");?>">
+                    <select name="ssh-macs[]" class="selectpicker advanced-crypto" data-live-search="true" data-none-selected-text="<?=gettext("System defaults");?>">
 <?php foreach ($options = empty($sshoptions['mac']) ? [] : $sshoptions['mac'] as $option): ?>
                       <option value="<?=$option;?>" <?= !empty($pconfig['ssh-macs']) && in_array($option, $pconfig['ssh-macs']) ? 'selected="selected"' : '' ?>>
                         <?=$option;?>
@@ -865,7 +865,7 @@ $(document).ready(function() {
               <tr class="show-advanced-crypto" style="display:none">
                 <td><a id="help_for_sshkeys" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?=gettext("Host key algorithms"); ?></td>
                 <td>
-                    <select name="ssh-keys[]" class="selectpicker advanced-crypto" data-live-search="true" title="<?=gettext("System defaults");?>">
+                    <select name="ssh-keys[]" class="selectpicker advanced-crypto" data-live-search="true" data-none-selected-text="<?=gettext("System defaults");?>">
 <?php foreach ($options = empty($sshoptions['key']) ? [] : $sshoptions['key'] as $option): ?>
                       <option value="<?=$option;?>" <?= !empty($pconfig['ssh-keys']) && in_array($option, $pconfig['ssh-keys']) ? 'selected="selected"' : '' ?>>
                         <?=$option;?>
@@ -880,7 +880,7 @@ $(document).ready(function() {
               <tr class="show-advanced-crypto" style="display:none">
                 <td><a id="help_for_sshkeysig" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?=gettext("Public key signature algorithms"); ?></td>
                 <td>
-                    <select name="ssh-keysig[]" class="selectpicker advanced-crypto" data-live-search="true" title="<?=gettext("System defaults");?>">
+                    <select name="ssh-keysig[]" class="selectpicker advanced-crypto" data-live-search="true" data-none-selected-text="<?=gettext("System defaults");?>">
 <?php foreach ($options = empty($sshoptions['key-sig']) ? [] : $sshoptions['key-sig'] as $option): ?>
                       <option value="<?=$option;?>" <?= !empty($pconfig['ssh-keysig']) && in_array($option, $pconfig['ssh-keysig']) ? 'selected="selected"' : '' ?>>
                         <?=$option;?>
@@ -1051,7 +1051,7 @@ $(document).ready(function() {
               <tr>
                 <td><a id="help_for_user_allow_gen_token" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?= gettext('User OTP seed') ?></td>
                 <td>
-                  <select name="user_allow_gen_token[]" multiple=multiple class="selectpicker">
+                  <select name="user_allow_gen_token[]" class="selectpicker">
 <?php foreach ($a_group as $group): ?>
                       <option value="<?= html_safe($group['name']) ?>" <?= in_array($group['name'], $pconfig['user_allow_gen_token'] ?? []) ? 'selected="selected"' : '' ?>>
                         <?= html_safe($group['name']) ?>

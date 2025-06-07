@@ -567,7 +567,7 @@ $( document ).ready(function() {
                   <td>
                     <?= gettext('Restore areas:') ?>
                     <div>
-                      <select name="restorearea[]" id="restorearea" class="selectpicker" title="<?= html_safe(gettext('All (recommended)')) ?>" data-live-search="true" data-size="10">
+                      <select name="restorearea[]" id="restorearea" class="selectpicker" data-none-selected-text="<?= html_safe(gettext('All (recommended)')) ?>" data-live-search="true" data-size="10">
 <?php foreach ($areas as $area => $areaname): ?>
                         <option value="<?= html_safe($area) ?>" <?= in_array($area, $pconfig['restorearea'] ?? []) ? 'selected="selected"' : '' ?>><?= $areaname ?></option>
 <?php endforeach ?>

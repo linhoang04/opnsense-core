@@ -327,7 +327,7 @@ include("head.inc");
                     foreach ($aliaslist as $aliasip => $aliasif) {
                         $interfaces[$aliasip] = $aliasip." (".get_vip_descr($aliasip).")";
                     }?>
-                      <select id="interface" name="interface[]" class="selectpicker" title="<?= html_safe(gettext('All (recommended)')) ?>">
+                      <select id="interface" name="interface[]" class="selectpicker" data-none-selected-text="<?= html_safe(gettext('All (recommended)')) ?>">
 <?php
                       foreach ($interfaces as $iface => $ifacename):
                           if (!is_ipaddr(get_interface_ip($iface)) && !is_ipaddr($iface)) {

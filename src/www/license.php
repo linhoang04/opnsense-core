@@ -1,7 +1,6 @@
 <?php
 require_once("guiconfig.inc");
 require_once("interfaces.inc");
-#require_once("filter.inc");
 require_once("license_utils.inc");
 
 session_start();
@@ -11,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $entered_key = $_POST["license_key"] ?? "";
     if (validate_license($entered_key)) {
         $_SESSION["license_key"] = $entered_key;
-        header("Location: /index.php"); // hoặc chuyển đến trang dashboard chính
+        header("Location: /index.php"); 
         exit;
     } else {
         $error = "Incorect License";
@@ -37,10 +36,9 @@ include("head.inc");
           <div class="text-danger" style="margin-top: 8px;"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?> 
         </form>
-      </div>
+        </div>
     </div>
   </section>
-
 <?php include("foot.inc"); ?>
 </body>
 </html>

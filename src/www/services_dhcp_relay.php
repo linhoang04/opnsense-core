@@ -131,7 +131,7 @@ include("head.inc");
                     <tr>
                       <td><a id="help_for_interface" href="#" class="showhelp"><i class="fa fa-info-circle"></i></a> <?=gettext('Interface(s)') ?></td>
                       <td>
-                        <select id="interface" name="interface[]" multiple="multiple" class="selectpicker">
+                        <select id="interface" name="interface[]" class="selectpicker">
 <?php
                         foreach ($iflist as $ifent => $ifdesc):
                         if (!is_ipaddr(get_interface_ip($ifent))) {

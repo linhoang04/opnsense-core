@@ -134,7 +134,7 @@ $prios = array('Emergency', 'Alert', 'Critical', 'Error', 'Warning', 'Notice', '
 </div>
 <div id="system_log-widgets" class="content-box table-responsive">
   <table id="system_log_table" class="table table-striped">
-    <tbody></tbody>
+    <tbody style="word-break: break-all;"></tbody>
   </table>
 </div>
 

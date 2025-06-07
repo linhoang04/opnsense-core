@@ -1,5 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <menu>
-    <Services>
-        <Redis order="3" cssClass="fa fa-database fa-fw" url="/ui/redis" svgIcon="servers" />
-    </Services>
+    <Monitoring VisibleName="Monitoring" cssClass="fa fa-chart-line fa-fw" order="80">
+        <TimeInfrastructureServices VisibleName="Time Infrastructure Services" cssClass="fa fa-clock fa-fw">
+            <Redis VisibleName="Redis" cssClass="fa fa-database fa-fw" svgIcon="servers" order="30" url="/ui/redis"/>
+        </TimeInfrastructureServices>
+    </Monitoring>
 </menu>

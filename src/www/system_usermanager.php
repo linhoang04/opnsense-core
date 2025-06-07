@@ -702,7 +702,7 @@ $( document ).ready(function() {
                         <tbody>
                           <tr>
                             <td>
-                              <select size="10" name="notgroups[]" id="notgroups" onchange="clear_selected('groups')" multiple="multiple">
+                              <select name="notgroups[]" id="notgroups" onchange="clear_selected('groups')">
 <?php
                               foreach ($config['system']['group'] as $group) :
                                 if (!empty($pconfig['groups']) && in_array($group['name'], $pconfig['groups'])) {
@@ -727,7 +727,7 @@ $( document ).ready(function() {
                               </a>
                             </td>
                             <td>
-                              <select size="10" name="groups[]" id="groups" onchange="clear_selected('notgroups')" multiple="multiple">
+                              <select name="groups[]" id="groups" onchange="clear_selected('notgroups')">
 <?php
                               if (!empty($pconfig['groups'])) :
                                 foreach ($config['system']['group'] as $group) :

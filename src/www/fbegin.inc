@@ -39,7 +39,29 @@ $aclObj = new \OPNsense\Core\ACL();
 div > .svgicon { margin: 0 }
 </style>
 
-  <script>
+  <script>    
+    $(document).ready(function() {
+    $('#add_widget_btn').on('click', function(e) {
+      e.preventDefault();
+      $('#modal_widgets').modal('show');
+    });
+
+    $('#log_btn').on('click', function(e) {
+    
+    const parent = $(this).closest('.dropdown');
+    const menu = parent.find('.dropdown-menu');
+
+    if (parent.hasClass('show')) {
+    	parent.removeClass('show');
+    	menu.removeClass('show').css('z-index', '');
+    	$(this).attr('aria-expanded', 'false');
+    } else {
+    	parent.addClass('show');
+    	menu.addClass('show');
+    	$(this).attr('aria-expanded', 'true');
+    }
+    });
+    });
     // JavaScript để ẩn intro sau 3.5s
     setTimeout(() => {
       document.querySelector('.logo-mask').style.display = 'none';
@@ -250,12 +272,12 @@ div > .svgicon { margin: 0 }
                                 <span class="<?= $_headerButtons['iconClass'] ?>"></span> <?php if ($_headerButtons['name']): ?><?= gettext($_headerButtons['name']) ?><?php endif; ?>
                             </a>
                         <?php else: ?>
-                            <div class="dropdown btn-group">
+                            <div id="log_btn" class="dropdown btn-group">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                                     <span class="dropdown-text"><span class="<?= $_headerButtons['iconClass'] ?>"></span> <?= gettext($_headerButtons['name']) ?></span>
                                     <span class="caret"></span>
                                 </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
+                                <ul class="dropdown-menu pull-right" role="menu" style="z-index: 1055 !important; position: absolute; margin-top: 30px">
                                     <?php foreach ($_headerButtons['buttons'] as $button): ?>
                                         <li><label class="dropdown-item"><a href="<?= $button['url'] ?>"><?= gettext($button['name']) ?></a><label></li>
                                     <?php endforeach; ?>
@@ -275,7 +297,7 @@ div > .svgicon { margin: 0 }
 
               <?php if (isset($widgetCollection)): ?>
                 <a href="#" id="updatepref" style="display:none" onclick="return updatePref();" class="btn btn-primary"><?=gettext("Save Settings");?></a>
-                <button id="add_widget_btn" type="button" class="btn btn-default" data-toggle="modal" data-target="#modal_widgets"><i class="fa fa-plus-circle fa-fw"></i> <?= gettext('Add widget') ?></button>
+                <button id="add_widget_btn" type="button" class="btn btn-default"><i class="fa fa-plus-circle fa-fw"></i> <?= gettext('Add widget') ?></button>
                 <select class="selectpicker" data-width="120px" id="column_count">
                     <option value="1" <?=$pconfig['column_count'] == "1" ? 'selected="selected"' : '';?>><?= gettext('1 column');?></option>
                     <option value="2" <?=$pconfig['column_count'] == "2" ? 'selected="selected"' : '';?>><?= sprintf(gettext('%s columns'), '2') ?></option>
